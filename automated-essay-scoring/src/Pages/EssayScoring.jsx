@@ -5,10 +5,7 @@ import { NavLink } from "react-router-dom";
 import { useState } from "react";
 
 const EssayScoring = () => {
-  const [smiles, setSmiles] = useState("");
-  const [targetSequence, setTargetSequence] = useState("");
-  const [mechanism, setMechanism] = useState("");
-  const [actionType, setActionType] = useState("");
+  const [essay, setEssay] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -75,7 +72,7 @@ const EssayScoring = () => {
       <div className="w-full flex flex-col pt-[40px] pb-[30px]">
         <div className="w-full">
           <h2 className="text-[25px] font-[700] pb-[30px]">
-            AI Prediction For Drugs Discovery
+            AI Prediction For Automated Essay Scoring
           </h2>
         </div>
 
@@ -84,34 +81,10 @@ const EssayScoring = () => {
             <br /> <br />
             <input
               type="text"
-              value={smiles}
-              onChange={(e) => setSmiles(e.target.value)}
+              value={essay}
+              onChange={(e) => setEssay(e.target.value)}
               className="w-[80%] border-black border-[1px] focus:outline-none focus:border-[#e0e3e7] py-2 px-4"
-              placeholder="Smiles"
-            />
-            <br /> <br />
-            <input
-              type="text"
-              value={targetSequence}
-              onChange={(e) => setTargetSequence(e.target.value)}
-              className="w-[80%] border-black border-[1px] focus:outline-none focus:border-[#e0e3e7] py-2 px-4"
-              placeholder="Target Sequence"
-            />
-            <br /> <br />
-            <input
-              type="text"
-              value={mechanism}
-              onChange={(e) => setMechanism(e.target.value)}
-              className="w-[80%] border-black border-[1px] focus:outline-none focus:border-[#e0e3e7] py-2 px-4"
-              placeholder="Mechanism of Action"
-            />
-            <br /> <br />
-            <input
-              type="text"
-              value={actionType}
-              onChange={(e) => setActionType(e.target.value)}
-              className="w-[80%] border-black border-[1px] focus:outline-none focus:border-[#e0e3e7] py-2 px-4"
-              placeholder="Action Type"
+              placeholder="Essay...."
             />
             <br /> <br />
             <button

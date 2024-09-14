@@ -25,7 +25,7 @@ const About = () => {
             animation: "slideInLeft 2s ease-out forwards",
           }}
         >
-          <p className=" p-5 w-[80%] text-[20px] text-justify epsilon-text">
+          <p className=" p-5 w-[80%] text-[18px] text-justify epsilon-text">
             At <b>Automated Essay Scoring(AES)</b>, we are transforming essay
             grading through advanced machine learning and NLP techniques. Our
             system ensures consistent, objective, and efficient evaluations,

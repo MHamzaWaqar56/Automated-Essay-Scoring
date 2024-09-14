@@ -12,9 +12,9 @@ function HomeNavbar() {
   return (
     <div className="px-3 lg1:hidden pt-[20px] pb-[20px]">
       <nav className="w-[100%] flex items-center justify-between relative">
-        <div className="w-[20%] flex justify-center">
+        <div className="w-[20%] logo-div flex justify-center">
           <h2
-            className="text-[22px] pl-[30px] font-[700] text-[#2575ed] "
+            className="logo-h2 text-[22px] pl-[30px] font-[700] text-[#2575ed] "
             style={{ fontFamily: "cursive" }}
           >
             Automated <br />
@@ -68,6 +68,29 @@ function HomeNavbar() {
 
       <style>
         {`
+
+          @media only screen and (min-width: 320px) and (max-width : 710px){
+            .logo-div{
+              width: 40%;
+            }
+
+            .logo-h2{
+              font-size : 16px;
+            }
+          
+          }
+
+          @media only screen and (min-width: 711px) and (max-width : 920px){
+            .logo-div{
+              width: 20%;
+            }
+
+            .logo-h2{
+              font-size : 16px;
+            }
+          
+          }
+
           @media only screen and (min-width: 320px) and (max-width : 1023px){
             .team{
               display: none;
