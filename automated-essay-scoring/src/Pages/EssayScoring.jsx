@@ -10,10 +10,7 @@ const EssayScoring = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    setSmiles("");
-    setTargetSequence("");
-    setMechanism("");
-    setActionType("");
+    setEssay("");
   };
 
   return (
@@ -71,7 +68,7 @@ const EssayScoring = () => {
 
       <div className="w-full flex flex-col pt-[40px] pb-[30px]">
         <div className="w-full">
-          <h2 className="text-[25px] font-[700] pb-[30px]">
+          <h2 className="text-[25px] prediction-text font-[700] pb-[30px]">
             AI Prediction For Automated Essay Scoring
           </h2>
         </div>
@@ -94,7 +91,7 @@ const EssayScoring = () => {
               Submit
             </button>
             <br />
-            <p className="text-right pr-[10px] pb-[10px] hover:text-[#2575ed]">
+            <p className="text-right pr-[10px] pb-[10px] pt-[10px] hover:text-[#2575ed]">
               <NavLink to="/">Back to Home</NavLink>
             </p>
           </div>
@@ -132,6 +129,10 @@ const EssayScoring = () => {
           @media only screen and (min-width: 320px) and (max-width : 450px){
           .drug-discovery{
             padding: 50px;
+          }
+
+          .prediction-text{
+            font-size : 15px;
           }
 
           .drug-h2{

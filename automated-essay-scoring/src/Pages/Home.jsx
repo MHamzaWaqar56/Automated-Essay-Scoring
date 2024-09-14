@@ -512,7 +512,7 @@ function Home() {
   }
 
   .precision-text{
-    font-size : 15px;
+    font-size : 12px;
   }
 
    .explore-text{
