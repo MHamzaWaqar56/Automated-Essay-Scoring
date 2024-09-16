@@ -106,7 +106,9 @@ const EssayScoring = () => {
               </p>
             </form>
             {prediction && (
-              <p className="pb-[20px]">Prediction: {prediction}</p>
+              <p className="pb-[20px]">
+                Prediction:<b> {prediction}</b>
+              </p>
             )}
           </div>
         </div>
