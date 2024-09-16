@@ -3,16 +3,24 @@ import Footer from "../Components/Footer";
 import backgroundImage from "../Images/img 1.jpeg";
 import { NavLink } from "react-router-dom";
 import { useState } from "react";
+import axios from "axios";
 
 const EssayScoring = () => {
   const [essay, setEssay] = useState("");
+  const [prediction, setPrediction] = useState("");
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
-    setEssay("");
+    try {
+      const response = await axios.post("http://localhost:5000/predict", {
+        essay,
+      });
+      setPrediction(response.data.prediction);
+    } catch (error) {
+      console.error("Error in prediction:", error);
+    }
   };
-
   return (
     <>
       <Navbar />
@@ -75,25 +83,31 @@ const EssayScoring = () => {
 
         <div className="w-full flex justify-center">
           <div className="w-1/2 drug-form bg-[#e0e3e7] rounded-md">
-            <br /> <br />
-            <input
-              type="text"
-              value={essay}
-              onChange={(e) => setEssay(e.target.value)}
-              className="w-[80%] border-black border-[1px] focus:outline-none focus:border-[#e0e3e7] py-2 px-4"
-              placeholder="Essay...."
-            />
-            <br /> <br />
-            <button
-              className="px-[10px] py-[5px] text-[20px] font-[600] border-[1px] border-black hover:bg-[#2575ed] hover:text-white hover:border-[#2575ed] "
-              onClick={handleSubmit}
-            >
-              Submit
-            </button>
-            <br />
-            <p className="text-right pr-[10px] pb-[10px] pt-[10px] hover:text-[#2575ed]">
-              <NavLink to="/">Back to Home</NavLink>
-            </p>
+            <form onSubmit={handleSubmit}>
+              <br /> <br />
+              <textarea
+                value={essay}
+                onChange={(e) => setEssay(e.target.value)}
+                placeholder="Enter your essay here"
+                rows="10"
+                cols="50"
+                className="w-[80%] border-black border-[1px] focus:outline-none focus:border-[#e0e3e7] py-2 px-4"
+              />
+              <br /> <br />
+              <button
+                className="px-[10px] py-[5px] text-[20px] font-[600] border-[1px] border-black hover:bg-[#2575ed] hover:text-white hover:border-[#2575ed] "
+                type="submit"
+              >
+                Submit
+              </button>
+              <br />
+              <p className="text-right pr-[10px] pb-[10px] pt-[10px] hover:text-[#2575ed]">
+                <NavLink to="/">Back to Home</NavLink>
+              </p>
+            </form>
+            {prediction && (
+              <p className="pb-[20px]">Prediction: {prediction}</p>
+            )}
           </div>
         </div>
       </div>
